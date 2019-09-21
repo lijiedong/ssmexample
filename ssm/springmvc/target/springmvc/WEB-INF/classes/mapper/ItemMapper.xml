@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace：命名空间，用于隔离sql，还有一个很重要的作用，后面会讲 -->
+<mapper namespace="com.dlj.dao.mapper.ItemMapper">
+    <select id="queryAllItem" resultType="com.dlj.dao.pojo.Item">
+        select * from items;
+    </select>
+    <select id="queryItemById" parameterType="Integer" resultType="Item">
+        select  * from items where id=#{id}
+    </select>
+    <update id="updateItemById" parameterType="Item">
+        update items set name =#{name},price=#{price},createtime=#{createtime},detail=#{detail}
+        where id=#{id}
+    </update>
+</mapper>
